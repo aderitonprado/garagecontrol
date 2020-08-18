@@ -6,6 +6,7 @@
 package view;
 
 import controller.ControllerUsuario;
+import javax.swing.JOptionPane;
 import model.ModelUsuario;
 
 /**
@@ -37,7 +38,7 @@ public class ViewLogin extends javax.swing.JFrame {
         jfLogin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtfLogin = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jbCancelar = new javax.swing.JButton();
         jbEntrar = new javax.swing.JButton();
         jtfSenha = new javax.swing.JPasswordField();
 
@@ -47,7 +48,12 @@ public class ViewLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 153, 204));
         jLabel1.setText("GARAGE CONTROL");
 
-        jButton1.setText("Cancelar");
+        jbCancelar.setText("Cancelar");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
 
         jbEntrar.setText("Entrar");
         jbEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +73,7 @@ public class ViewLogin extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(39, 39, 39))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jfLoginLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(jbEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jtfLogin)
@@ -85,7 +91,7 @@ public class ViewLogin extends javax.swing.JFrame {
                 .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addGroup(jfLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jbCancelar)
                     .addComponent(jbEntrar))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -106,8 +112,24 @@ public class ViewLogin extends javax.swing.JFrame {
 
     private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
         // Ao clicar no botão acima, chamaremos o metodo para obter os dados de login
+        // metodo que ontem os valores dos campos de login e senha e faz o login
+        modelUsuario.setUsu_login(jtfLogin.getText());
+        modelUsuario.setUsu_senha(String.valueOf(jtfSenha.getPassword()));
+        
+        if(controllerUsuario.validarUsuarioController(modelUsuario)){
+            System.out.println("usuario validado");
+            new ViewPrincipal().setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto!");
+        }
         
     }//GEN-LAST:event_jbEntrarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        // Sai de todo o sistema
+        System.exit(0);
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,8 +168,8 @@ public class ViewLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbEntrar;
     private javax.swing.JPanel jfLogin;
     private javax.swing.JTextField jtfLogin;

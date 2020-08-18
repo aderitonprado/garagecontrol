@@ -2,7 +2,7 @@ package controller;
 
 import model.ModelUsuario;
 import DAO.DAOUsuario;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
 *
@@ -17,7 +17,7 @@ public class ControllerUsuario {
     * @param pModelUsuario
     * @return int
     */
-    public int salvarUsuarioController(ModelUsuario pModelUsuario){
+    public boolean salvarUsuarioController(ModelUsuario pModelUsuario){
         return this.daoUsuario.salvarUsuarioDAO(pModelUsuario);
     }
 
@@ -35,7 +35,7 @@ public class ControllerUsuario {
     * @param pUsu_id
     * @return ArrayList
     */
-    public ArrayList<ModelUsuario> getListaUsuarioController(){
+    public List<ModelUsuario> getListaUsuariosController(){
         return this.daoUsuario.getListaUsuarioDAO();
     }
 
@@ -56,4 +56,9 @@ public class ControllerUsuario {
     public boolean excluirUsuarioController(int pUsu_id){
         return this.daoUsuario.excluirUsuarioDAO(pUsu_id);
     }
+
+    public boolean validarUsuarioController(ModelUsuario modelUsuario) {
+        return this.daoUsuario.validarUsuario(modelUsuario);
+    }
+
 }

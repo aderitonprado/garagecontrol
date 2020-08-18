@@ -10,6 +10,7 @@ public class ModelUsuario {
     private String usu_login;
     private String usu_senha;
     private int usu_nivel;
+    private int usu_status;
 
     /**
     * Construtor
@@ -85,9 +86,22 @@ public class ModelUsuario {
     public int getUsu_nivel(){
         return this.usu_nivel;
     }
+    
+    public int getUsu_status() {
+        return this.usu_status;
+    }
+    
+    /**
+    * seta o valor de usu_nivel
+    * @param pUsu_status
+    */
+    public void setUsu_status(int pUsu_status){
+        this.usu_status = pUsu_status;
+    }
 
     @Override
     public String toString(){
         return "ModelUsuario {" + "::usu_id = " + this.usu_id + "::usu_nome = " + this.usu_nome + "::usu_login = " + this.usu_login + "::usu_senha = " + this.usu_senha + "::usu_nivel = " + this.usu_nivel +  "}";
     }
+
 }

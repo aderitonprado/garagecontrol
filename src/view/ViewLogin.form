@@ -46,7 +46,7 @@
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="jbCancelar" min="-2" pref="104" max="-2" attributes="0"/>
                           <EmptySpace pref="46" max="32767" attributes="0"/>
                           <Component id="jbEntrar" min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
@@ -68,7 +68,7 @@
                   <Component id="jtfSenha" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbEntrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -90,10 +90,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfLogin">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jbCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbCancelarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbEntrar">
           <Properties>
